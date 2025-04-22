@@ -184,7 +184,7 @@ public class HorizontalFloatingHeaderLayout: UICollectionViewLayout {
     //MARK: For SupplementaryViewOfKind
     public override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         switch elementKind {
-        case UICollectionElementKindSectionHeader:
+        case UICollectionView.elementKindSectionHeader:
             let fromIndexPath = IndexPath(row: indexPath.row, section: indexPath.section)
             return sectionHeadersAttributes[fromIndexPath]
         default:
@@ -216,7 +216,7 @@ public class HorizontalFloatingHeaderLayout: UICollectionViewLayout {
                 }
             }
             //
-            let attribute = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: indexPath)
+            let attribute = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: indexPath)
             let myPosition = position()
             let mySize = size()
             let frame = CGRect(x:myPosition.x, y:myPosition.y, width: mySize.width, height: mySize.height)
@@ -261,7 +261,7 @@ public class HorizontalFloatingHeaderLayout: UICollectionViewLayout {
         //
         let context = super.invalidationContext(forBoundsChange: newBounds)
         if !isSizeChanged(){
-            context.invalidateSupplementaryElements(ofKind: UICollectionElementKindSectionHeader, at: headersIndexPaths())
+            context.invalidateSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader, at: headersIndexPaths())
         }
         return context
     }
